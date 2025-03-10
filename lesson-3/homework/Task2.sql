@@ -1,10 +1,11 @@
 use lesson3;
 go
--- Selects OrderStatus, total number of orders, and total revenue  
+-- Selects OrderStatus, total number of orders, total revenue  
 SELECT 
 	OrderStatus,  
 	COUNT(*) as TotalOrders,  -- Counts the number of orders per status
 	SUM(TotalAmount) as TotalRevenue -- Calculates total revenue per status
+
 FROM (
 -- Subquery: Assigns a new column OrderStatus based on the original Status column  
 	SELECT *,
@@ -12,7 +13,6 @@ FROM (
 		WHEN Status in ('Shipped', 'Delivered') THEN 'Completed'
 		WHEN Status = 'Pending' THEN 'Pending'
 		WHEN Status = 'Cancelled' THEN 'Cancelled'
-		ELSE 'Unknown'
 	END
 	AS OrderStatus
 	FROM Orders

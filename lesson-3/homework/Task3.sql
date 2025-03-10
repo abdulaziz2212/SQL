@@ -16,5 +16,5 @@ JOIN (
     GROUP BY Category
 ) sub ON p.Category = sub.Category AND p.Price = sub.MaxPrice
 ORDER BY p.Price DESC
-OFFSET 5 ROWS;
+--OFFSET 5 ROWS;
 

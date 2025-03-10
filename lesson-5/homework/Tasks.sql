@@ -21,7 +21,7 @@ INSERT INTO Employees (Name, Department, Salary, HireDate) VALUES
 
 
 --Assign a Unique Rank to Each Employee Based on Salary
-
+select * from Employees
 select *, row_number() over(order by Salary) as rank
 from Employees
 order by EmployeeID;
